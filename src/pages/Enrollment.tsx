@@ -192,35 +192,39 @@ export default function Enrollment({ go }: { go: (r: string) => void }) {
               </div>
             </Reveal>
 
-            <Reveal delay={150}>
-              <div className="rounded-[2.5rem] border-4 border-sun/60 bg-sun/10 p-6">
-                <h3 className="font-display text-xl font-extrabold text-forest-deep">
-                  Prilikom prvog dolaska deteta u vrtić, treba poneti…
-                </h3>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {ENROLL.bring.map((b, i) => {
-                    const on = bring.includes(i);
-                    return (
-                      <button
-                        key={b}
-                        type="button"
-                        onClick={() => setBring((br) => (br.includes(i) ? br.filter((x) => x !== i) : [...br, i]))}
-                        className={cn(
-                          "press rounded-full border-2 px-4 py-2 text-sm font-bold transition-all",
-                          on ? "border-forest bg-forest text-cream" : "border-forest/20 bg-white text-forest-deep hover:border-forest/50",
-                        )}
-                      >
-                        {on ? "✅ " : "⬜ "}
-                        {b}
-                      </button>
-                    );
-                  })}
-                </div>
-                <p className="mt-4 text-sm text-ink/70">{ENROLL.bringNote}</p>
-              </div>
-            </Reveal>
           </div>
         </div>
+      </section>
+
+      {/* prilikom prvog dolaska – full width da se ne preklapa */}
+      <section className="mx-auto mt-16 max-w-7xl px-4 sm:px-6">
+        <Reveal>
+          <div className="rounded-[2.5rem] border-4 border-sun/60 bg-sun/10 p-6 sm:p-8">
+            <h3 className="font-display text-xl font-extrabold text-forest-deep sm:text-2xl">
+              Prilikom prvog dolaska deteta u vrtić, treba poneti…
+            </h3>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {ENROLL.bring.map((b, i) => {
+                const on = bring.includes(i);
+                return (
+                  <button
+                    key={b}
+                    type="button"
+                    onClick={() => setBring((br) => (br.includes(i) ? br.filter((x) => x !== i) : [...br, i]))}
+                    className={cn(
+                      "press rounded-full border-2 px-4 py-2 text-sm font-bold transition-all",
+                      on ? "border-forest bg-forest text-cream" : "border-forest/20 bg-white text-forest-deep hover:border-forest/50",
+                    )}
+                  >
+                    {on ? "✅ " : "⬜ "}
+                    {b}
+                  </button>
+                );
+              })}
+            </div>
+            <p className="mt-4 text-sm text-ink/70">{ENROLL.bringNote}</p>
+          </div>
+        </Reveal>
       </section>
 
       {/* spoljni saradnici */}

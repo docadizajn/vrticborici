@@ -361,7 +361,7 @@ export function CareersPage({ go }: { go: (r: string) => void }) {
           sub="Strastveni, kreativni i spremni da detinjstvo vrate u prirodu."
           accent="berry"
         />
-        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[
             { emoji: "👩‍🏫", t: "Vaspitači", d: "Mala grupa = puna pažnja svakom detetu." },
             { emoji: "🎹", t: "Nastavnik muzike", d: "Klavir, pesma i ritam svake nedelje." },
@@ -369,7 +369,7 @@ export function CareersPage({ go }: { go: (r: string) => void }) {
             { emoji: "🩺", t: "Pedijatar", d: "Redovna briga o zdravlju mališana." },
           ].map((x, i) => (
             <Reveal key={x.t} delay={i * 80}>
-              <div className="h-full rounded-[2rem] border-4 border-forest/10 bg-white p-6 transition-transform duration-300 hover:-translate-y-1.5 hover:rotate-1">
+              <div className="h-full rounded-[2rem] border-4 border-forest/10 bg-white p-6 transition-transform duration-300 hover:-translate-y-1.5">
                 <span className="text-4xl">{x.emoji}</span>
                 <h3 className="mt-3 font-display text-xl font-extrabold text-forest-deep">{x.t}</h3>
                 <p className="mt-1 text-sm text-ink/70">{x.d}</p>

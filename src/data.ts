@@ -11,8 +11,19 @@ export const SITE = {
 };
 
 const CDN = "https://vrticborici.rs/wp-content/uploads/2020/07";
-export const photo = (name: string, size?: 300 | 768 | 1024) =>
-  `${CDN}/${name}${size ? `-${size}x${size}` : ""}.jpg`;
+
+const LOCAL_PHOTOS: Record<string, string> = {
+  "Borici_(5_)": "images/Borici_(5_).png",
+  "Borici_(111_)": "images/Borici_(111_).png",
+  "Borici_(146_)": "images/Borici_(146_).png",
+  "Borici_(198_)": "images/Borici_(198_).png",
+  "Borici_(294_)": "images/Borici_(294_).png",
+};
+
+export const photo = (name: string, size?: 300 | 768 | 1024) => {
+  if (LOCAL_PHOTOS[name]) return LOCAL_PHOTOS[name];
+  return `${CDN}/${name}${size ? `-${size}x${size}` : ""}.jpg`;
+};
 
 export const CONTACT = {
   phone: "+381 63 8050 377",
@@ -501,6 +512,11 @@ export const CAREERS = {
 };
 
 export const GALLERY = [
+  "Borici_(5_)",
+  "Borici_(111_)",
+  "Borici_(146_)",
+  "Borici_(198_)",
+  "Borici_(294_)",
   "DSC00213",
   "DSC00530",
   "DSC00643-1",
